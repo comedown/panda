@@ -1,0 +1,21 @@
+dependencies {
+    compile(
+            "mysql:mysql-connector-java:$mysqlConnectorVersion",
+            "com.alibaba:druid:$druidVersion",
+            "org.mybatis:mybatis:$mybatisVersion",
+            "org.springframework.boot:spring-boot-starter:$springBootVersion",
+            "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion",
+            project(
+                    ":panda-entity"
+            )
+    )
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisStarterVersion") {
+        exclude group: 'org.mybatis'
+        exclude group: 'org.springframework.boot'
+    }
+    compile("com.alibaba:druid-spring-boot-starter:$druidStarterVersion") {
+        exclude group: 'com.alibaba'
+        exclude group: 'org.slf4j'
+        exclude group: 'org.springframework.boot'
+    }
+}

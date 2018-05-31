@@ -1,0 +1,39 @@
+#spring.mvc.view.prefix=/WEB-INF/views/
+#spring.mvc.view.suffix=.jsp
+
+#server配置
+## 修改默认端口方法一
+server:
+  port: 8888
+  servlet:
+    context-path: /hello
+spring:
+  # 数据库
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    ## ///代表localhost:3306
+    url: jdbc:mysql:///panda?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 10000
+      test-on-borrow: false
+      test-on-return: true
+      # StatViewServlet配置，说明请参考Druid Wiki，配置_StatViewServlet配置
+      stat-view-servlet:
+        #是否启用StatViewServlet默认值true
+        enabled: true
+        url-pattern: /druid/*
+        # 禁用页面reset all功能
+        reset-enable: false
+        login-username: young
+        login-password: 123456
+        # ip白名单
+        allow:
+        # ip黑名单
+        deny:
+
+

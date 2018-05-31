@@ -1,0 +1,100 @@
+<configuration>
+
+    <!-- layout中使用%contextName可以显示上下文名称 -->
+    <contextName>hello</contextName>
+
+    <!-- key/value属性，使用${key} -->
+    <!-- java -DUSER_HOME="/home/sebastien"在java虚拟机中配置系统变量，如果在当前配置中
+        没有找到属性，则会去系统变量中寻找-->
+    <!-- logback自带一个HOSTNAME属性 -->
+    <!--<property name="HOME_PATH" value="" />-->
+
+    <!-- 引用classpath下的属性文件。file表示引用本地文件，resource表示引用classpath下的资源，
+        url表示引用网络资源-->
+    <property resource="logback.properties"/>
+
+    <!-- 必须属性key（时间戳的名称），必须属性datePattern（时间格式），通过${key}可以获取解析配置文件的当前时间 -->
+    <timestamp key="timestamp" datePattern="yyyyMMddHHmmss"></timestamp>
+
+    <!-- 零个或多个Appender -->
+    <!-- 必须name属性，必须class属性 -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <!-- 输出日志得文件名 -->
+        <file>${HOME_PATH}/error.log</file>
+        <!-- 默认为true，表示追加内容到已存在的文件末尾；设置为false代表清空已存在的文件 -->
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p --- [%t] %c{50} : %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 输出日志得文件名 -->
+        <file>${HOME_PATH}/error.log</file>
+
+        <!-- 默认为true，表示追加内容到已存在的文件末尾；设置为false代表清空已存在的文件 -->
+        <append>true</append>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p --- [%t] %c{50} : %m%n</pattern>
+        </encoder>
+
+        <!-- 负责怎么归档 -->
+        <!-- FixedWindowRollingPolicy根据固定窗口算法重命名文件 -->
+        <!-- TimeBasedRollingPolicy根据时间归档，它同时实现了RollingPolicy和TriggeringPolicy接口，
+            及负责归档也负责触发归档-->
+        <!-- SizeAndTimeBasedFNATP根据日期归档，同时限制文件大小 -->
+        <!--<rollingPolicy></rollingPolicy>-->
+
+        <!-- 负责什么时候归档 -->
+        <!-- SizeBasedTriggeringPolicy根据文件大小触发归档，maxFileSize默认为10M，单位有bytes、KB、MB 或 GB -->
+        <!--<triggeringPolicy></triggeringPolicy>-->
+    </appender>
+
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <!--<conversionRule conversionWord="wex"-->
+                    <!--converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>-->
+    <!--<conversionRule conversionWord="wEx"-->
+                    <!--converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>-->
+    <!-- 彩色日志格式 -->
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(-%5p) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 零个或多个layout -->
+        <!-- 必须class属性，当layout是PatternLayout，可以省略class属性 -->
+        <!--<layout></layout>-->
+        <!-- 零个或多个encoder -->
+        <!-- 必须class属性，当encoder是PatternLayoutEncoder，可以省略class属性 -->
+        <encoder>
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p -&#45;&#45; [%t] %c{50} : %m%n</pattern>-->
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+        <!-- 零个或多个filter -->
+    </appender>
+
+
+    <!-- 零个或多个Logger -->
+    <!-- 必须name属性、可选level属性（只可以是TRACE、DEBUG、INFO、WARN、ERROR、ALL 和 OFF，
+        inherited或null表示强制继承上级级别）、可选additivity属性（默认true，表示开启叠加性，
+        设置为false表示关闭叠加性） -->
+    <!-- 每个用<logger>元素声明的 logger，首先会移除所有 appender，然后才添加引用了的 appender，
+        所以如果 logger 没有引用任何 appender，就会失去所有 appender。 -->
+    <logger name="com.young.panda" level="DEBUG">
+        <!-- 零个或多个appender-ref，表示添加一个appender -->
+        <appender-ref ref="FILE"></appender-ref>
+    </logger>
+    <logger name="org.springframework" level="INFO">
+        <!-- 零个或多个appender-ref，表示添加一个appender -->
+        <appender-ref ref="CONSOLE"></appender-ref>
+    </logger>
+
+    <!-- 最多一个Root -->
+    <!-- level属性（值同上），默认name为ROOT -->
+    <!-- 与logger相同，会先移除所有appender,..... -->
+    <root>
+        <!-- 零个或多个appender-ref，表示添加一个appender -->
+        <appender-ref ref="CONSOLE"></appender-ref>
+    </root>
+</configuration>
