@@ -1,7 +1,7 @@
-package com.young.panda.hello.controller.auth;
+package com.panda.hello.controller.auth;
 
-import com.young.panda.entity.auth.User;
-import com.young.panda.hello.controller.BaseController;
+import com.panda.hello.controller.BaseController;
+import com.panda.entity.auth.User;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

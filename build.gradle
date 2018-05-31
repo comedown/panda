@@ -14,7 +14,7 @@ allprojects {
     apply plugin: 'eclipse'
     apply plugin: 'idea'
 
-    group = 'com.young'
+    group = 'com.panda'
     version = '1.0.0'
     sourceCompatibility = 1.8  // 必须的加入apply plugin: 'idea'或者apply plugin: 'eclipse'
 

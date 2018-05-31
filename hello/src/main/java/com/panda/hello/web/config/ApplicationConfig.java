@@ -1,18 +1,10 @@
-package com.young.panda.hello.web.config;
+package com.panda.hello.web.config;
 
 import ch.qos.logback.classic.ViewStatusMessagesServlet;
-import com.alibaba.druid.support.http.StatViewServlet;
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.young.panda.hello.web.filter.MyFirstFilter;
-import com.young.panda.hello.web.filter.MySecondFilter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
-import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
+import com.panda.hello.web.filter.MyFirstFilter;
+import com.panda.hello.web.filter.MySecondFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -21,14 +13,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.servlet.View;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-@ComponentScan(basePackages = {"com.young.panda.hello.controller.*"})
+@ComponentScan(basePackages = {"com.panda.hello.controller.*"})
 public class ApplicationConfig {
 
 	//		QuoteFieldNames           输出key时是否使用双引号,默认为true
@@ -88,7 +78,7 @@ public class ApplicationConfig {
 		messageConverter.setSupportedMediaTypes(mediaTypes);
 		// ObjectMapper
 		ObjectMapper objectMapper = new ObjectMapper();
-		// 设置null字段不显示
+		// 设置null字段不显示$
 		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 		messageConverter.setObjectMapper(objectMapper);
 

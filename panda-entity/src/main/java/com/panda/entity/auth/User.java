@@ -1,4 +1,4 @@
-package com.young.panda.entity.auth;
+package com.panda.entity.auth;
 
 import lombok.*;
 

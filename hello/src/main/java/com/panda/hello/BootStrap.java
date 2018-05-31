@@ -1,10 +1,9 @@
-package com.young.panda.hello;
+package com.panda.hello;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.server.ConfigurableWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
-import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
 public class BootStrap implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {
