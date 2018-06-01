@@ -1,18 +1,74 @@
 package com.panda.entity.auth;
 
-import lombok.*;
+import lombok.ToString;
 
-import java.io.Serializable;
+import javax.persistence.*;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "user")
 @ToString
-public class User implements Serializable {
-	private static final long serialVersionUID = 4034801522671846681L;
+public class User {
+    @Id
+    private Integer id;
 
-	private String name;
-	private String password;
-	private String mobile;
+    private String username;
+
+    private String password;
+
+    private String nickname;
+
+    /**
+     * @return id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * @param id
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * @return username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @return password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @return nickname
+     */
+    public String getNickname() {
+        return nickname;
+    }
+
+    /**
+     * @param nickname
+     */
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 }

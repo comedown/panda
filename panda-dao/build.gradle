@@ -10,12 +10,15 @@ dependencies {
             )
     )
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisStarterVersion") {
-        exclude group: 'org.mybatis'
+        exclude group: 'org.mybatis', module: 'mybatis'
         exclude group: 'org.springframework.boot'
     }
     compile("com.alibaba:druid-spring-boot-starter:$druidStarterVersion") {
         exclude group: 'com.alibaba'
         exclude group: 'org.slf4j'
         exclude group: 'org.springframework.boot'
+    }
+    compile("tk.mybatis:mapper:$tkMybatisVersion") {
+        exclude group: 'javax.persistence'
     }
 }

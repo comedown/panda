@@ -1,0 +1,33 @@
+mybatis:
+  mapper-locations: classpath:mapper/*-mapper.xml
+# spring配置
+spring:
+  # 数据库
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # ///代表localhost:3306
+    # mysql jdbc连接工具6.0+需要指定系统时区，在url后加上serverTimezone=Asia/Shanghai或者serverTimezone=UTC、GMT
+    url: jdbc:mysql:///panda?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&useSSL=true
+    username: root
+    password: 123456
+    druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 10000
+      test-on-borrow: false
+      test-on-return: true
+      # StatViewServlet配置，说明请参考Druid Wiki，配置_StatViewServlet配置
+      stat-view-servlet:
+        # 是否启用StatViewServlet默认值true
+        enabled: true
+        url-pattern: /druid/*
+        # 禁用页面reset all功能
+        reset-enable: false
+        login-username: young
+        login-password: 123456
+        # ip白名单
+        allow:
+        # ip黑名单
+        deny:

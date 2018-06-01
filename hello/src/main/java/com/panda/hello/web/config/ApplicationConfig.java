@@ -21,7 +21,7 @@ import java.util.List;
 @ComponentScan(basePackages = {"com.panda.hello.controller.*"})
 public class ApplicationConfig {
 
-	//		QuoteFieldNames           输出key时是否使用双引号,默认为true
+//		QuoteFieldNames           输出key时是否使用双引号,默认为true
 //		UseSingleQuotes           使用单引号而不是双引号,默认为false
 //		WriteMapNullValue         是否输出值为null的字段,默认为false
 //		WriteEnumUsingToString    Enum输出name()或者original,默认为false
