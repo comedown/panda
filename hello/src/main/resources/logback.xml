@@ -85,9 +85,13 @@
         <!-- 零个或多个appender-ref，表示添加一个appender -->
         <appender-ref ref="FILE"></appender-ref>
     </logger>
+    <!-- spring log -->
     <logger name="org.springframework" level="INFO">
         <!-- 零个或多个appender-ref，表示添加一个appender -->
-        <appender-ref ref="CONSOLE"></appender-ref>
+    </logger>
+    <!-- mybatis log -->
+    <logger name="org.apache.ibatis" level="INFO">
+        <!-- 零个或多个appender-ref，表示添加一个appender -->
     </logger>
 
     <!-- 最多一个Root -->

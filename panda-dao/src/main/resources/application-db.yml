@@ -8,9 +8,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     # ///代表localhost:3306
     # mysql jdbc连接工具6.0+需要指定系统时区，在url后加上serverTimezone=Asia/Shanghai或者serverTimezone=UTC、GMT
-    url: jdbc:mysql:///panda?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&useSSL=true
-    username: root
-    password: 123456
+#    url: jdbc:mysql:///panda?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&useSSL=true
+    url: jdbc:mysql://116.62.214.248:3306/hello?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: ysera
+    password: Ysera123456&
     druid:
       initial-size: 5
       max-active: 20

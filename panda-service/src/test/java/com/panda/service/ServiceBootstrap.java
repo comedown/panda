@@ -1,8 +1,7 @@
 package com.panda.service;
 
-import com.panda.dao.auth.UserDao;
-import com.panda.entity.auth.User;
-import com.panda.service.auth.IUserService;
+import com.panda.entity.sys.User;
+import com.panda.service.sys.IUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
@@ -20,11 +19,7 @@ public class ServiceBootstrap {
 
 	@Test
 	public void testMybatis() {
-		User user = new User();
-		user.setUsername("young");
-		user.setPassword("123456");
-		user.setNickname("nickname");
-		user = userService.getUserById(2L);
-		System.out.println(user.toString());
+		User user = userService.getUserById(1L);
+		System.out.println(user);
 	}
 }

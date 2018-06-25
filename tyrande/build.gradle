@@ -1,0 +1,28 @@
+// tyrande 泰兰德
+// spring cloud
+
+buildscript {
+	repositories {
+		// 兼容mavenCentral()，且性能更优
+		jcenter()
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+	}
+	dependencies {
+		// 官网写的0.5.2会报Could not create task of type 'DependencyManagementReportTask'
+		classpath "io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE"
+	}
+}
+
+apply plugin: "io.spring.dependency-management"
+
+dependencyManagement {
+	imports {
+		mavenBom 'org.springframework.cloud:spring-cloud-config:2.0.0.RELEASE'
+	}
+}
+
+dependencies {
+	compile 'org.springframework.cloud:spring-cloud-starter-config'
+}

@@ -1,6 +1,6 @@
-package com.panda.dao.auth;
+package com.panda.dao.sys;
 
-import com.panda.entity.auth.User;
+import com.panda.entity.sys.User;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface UserDao extends Mapper<User> {

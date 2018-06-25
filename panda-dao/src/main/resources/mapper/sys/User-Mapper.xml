@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.panda.dao.sys.UserDao">
+  <resultMap id="BaseResultMap" type="com.panda.entity.sys.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="identity" jdbcType="VARCHAR" property="identity" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="constellation" jdbcType="CHAR" property="constellation" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="profile_image_url" jdbcType="VARCHAR" property="profileImageUrl" />
+    <result column="isValid" jdbcType="BIT" property="isvalid" />
+    <result column="profile_image_binarry" jdbcType="LONGVARBINARY" property="profileImageBinarry" />
+  </resultMap>
+</mapper>

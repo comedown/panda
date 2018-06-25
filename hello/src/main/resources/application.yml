@@ -9,5 +9,7 @@ server:
 spring:
   profiles:
     active: db # 引入以application-（必须）开头的配置文件
+  thymeleaf:
+    prefix:classpath:/templates/
 
 

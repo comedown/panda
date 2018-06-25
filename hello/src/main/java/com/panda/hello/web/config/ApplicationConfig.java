@@ -13,12 +13,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.filter.HttpPutFormContentFilter;
+import tk.mybatis.spring.annotation.MapperScan;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-@ComponentScan(basePackages = {"com.panda.hello.controller.*"})
+@ComponentScan(basePackages = {"com.panda.hello.controller.*", "com.panda.service.*"})
+@MapperScan("com.panda.dao.*")
 public class ApplicationConfig {
 
 //		QuoteFieldNames           输出key时是否使用双引号,默认为true
@@ -98,45 +101,5 @@ public class ApplicationConfig {
 //
 //		return viewResolver;
 //	}
-
-	@Bean
-	public FilterRegistrationBean myFirstFilter() {
-		FilterRegistrationBean registration = new FilterRegistrationBean();
-		registration.setFilter(new MyFirstFilter());
-		registration.setName("firstFilter");
-		registration.addUrlPatterns("/*", "/");
-		registration.setOrder(1); // 执行顺序，越小越先执行
-		registration.addInitParameter("param1", "value1");
-		registration.addInitParameter("param1", "value1.1");
-		registration.addInitParameter("param2", "value2");
-
-		return registration;
-	}
-
-	@Bean
-	@Order(2)
-	public FilterRegistrationBean mySecondFilter() {
-		FilterRegistrationBean registration = new FilterRegistrationBean();
-		registration.setFilter(new MySecondFilter());
-		registration.setName("secondFilter");
-		registration.addUrlPatterns("/auth/*");
-
-		return registration;
-	}
-
-	/**
-	 * logback，ViewStatusMessagesServlet以html表格的形式打印与当前LoggerContext关联的StatusManager
-	 *
-	 * @return
-	 */
-	@Bean
-	public ServletRegistrationBean viewStatusMessageServlet() {
-		ServletRegistrationBean registration = new ServletRegistrationBean();
-		registration.setServlet(new ViewStatusMessagesServlet());
-		registration.setName("viewStatusMessageServlet");
-		registration.addUrlMappings("/lbClassicStatus");
-
-		return registration;
-	}
 
 }

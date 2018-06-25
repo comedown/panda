@@ -3,4 +3,5 @@ include 'hello'
 include 'panda-service'
 include 'panda-dao'
 include 'panda-entity'
+include 'tyrande'
 

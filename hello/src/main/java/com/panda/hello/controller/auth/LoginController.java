@@ -1,18 +1,19 @@
 package com.panda.hello.controller.auth;
 
+import com.panda.entity.sys.User;
 import com.panda.hello.controller.BaseController;
-import com.panda.entity.auth.User;
+import com.panda.service.sys.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ResourceUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
 
 @RestController
 @RequestMapping("/auth")
 public class LoginController extends BaseController {
+	@Autowired
+	private IUserService userService;
 
 	@PostMapping("/login")
 	private String auth() {
@@ -26,9 +27,14 @@ public class LoginController extends BaseController {
 
 	@GetMapping("/getUser")
 	private User getUser() {
-		User user = new User();
-		user.setName("aa");
-		user.setPassword("");
+		User user = userService.getUserById(1L);
 		return user;
 	}
+
+	@PutMapping("/update")
+	private String updateUser(User user) {
+		System.out.println(request.getMethod());
+		return "success";
+	}
+
 }

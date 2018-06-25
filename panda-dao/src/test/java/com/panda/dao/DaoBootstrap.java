@@ -1,7 +1,7 @@
 package com.panda.dao;
 
-import com.panda.dao.auth.UserDao;
-import com.panda.entity.auth.User;
+import com.panda.dao.sys.UserDao;
+import com.panda.entity.sys.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
@@ -19,10 +19,7 @@ public class DaoBootstrap {
 
 	@Test
 	public void testMybatis() {
-		User user = new User();
-		user.setUsername("young");
-		user.setPassword("123456");
-		user.setNickname("nickname");
-		userDao.insert(user);
+		User user = userDao.selectByPrimaryKey(1);
+		System.out.println(user);
 	}
 }

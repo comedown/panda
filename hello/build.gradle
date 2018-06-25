@@ -1,8 +1,25 @@
+// spring boot
+
+buildscript {
+    repositories {
+        // 兼容mavenCentral()，且性能更优
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.1.RELEASE'
+    }
+}
+
 dependencies {
     compile(
             "org.springframework.boot:spring-boot-starter-web:$springBootVersion",
-            "org.apache.shiro:shiro-core:$shiroVersion",
+            "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion",
+            "org.springframework.boot:spring-boot-starter-data-redis:$springBootVersion",
+            "org.apache.shiro:shiro-spring:$shiroVersion",
+            "org.apache.shiro:shiro-ehcache:$shiroVersion",
             "com.alibaba:fastjson:$fastjsonVersion",
+            "org.webjars:jquery:3.3.1", // webjar
+            "org.webjars:bootstrap:4.1.0", // webjar
             project(
                     ":panda-service"
             )

@@ -1,6 +1,6 @@
-package com.panda.service.auth;
+package com.panda.service.sys;
 
-import com.panda.entity.auth.User;
+import com.panda.entity.sys.User;
 
 public interface IUserService {
 
