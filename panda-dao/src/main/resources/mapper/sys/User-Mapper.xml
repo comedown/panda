@@ -23,4 +23,15 @@
     <result column="isValid" jdbcType="BIT" property="isvalid" />
     <result column="profile_image_binarry" jdbcType="LONGVARBINARY" property="profileImageBinarry" />
   </resultMap>
+
+  <select id="selectUsersByIdList" parameterType="java.util.List" resultMap="BaseResultMap">
+    SELECT *
+    FROM sys_user
+    <where>
+      id in
+      <foreach collection="list" open="(" close=")" separator="," item="id" index="index">
+        #{id, jdbcType=INTEGER}
+      </foreach>
+    </where>
+  </select>
 </mapper>

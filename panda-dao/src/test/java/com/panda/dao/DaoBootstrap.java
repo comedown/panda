@@ -10,6 +10,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {DataSourceAutoConfiguration.class, MybatisAutoConfiguration.class, JunitDaoConfig.class})
 public class DaoBootstrap {
@@ -18,8 +21,21 @@ public class DaoBootstrap {
 	private UserDao userDao;
 
 	@Test
-	public void testMybatis() {
-		User user = userDao.selectByPrimaryKey(1);
-		System.out.println(user);
+	public void testSelect() {
+		List<Integer> idList = new ArrayList<>();
+		idList.add(1);
+		idList.add(2);
+		List<User> users = userDao.selectUsersByIdList(idList);
+		users.forEach(user -> {
+			System.out.println(user.getUsername());
+		});
+	}
+
+	@Test
+	public void testInsertUser() {
+		User user = new User();
+		user.setUsername("二狗");
+		user.setNickname("twoDog");
+		userDao.insertSelective(user);
 	}
 }

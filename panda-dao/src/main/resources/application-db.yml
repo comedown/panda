@@ -1,5 +1,5 @@
 mybatis:
-  mapper-locations: classpath:mapper/*-mapper.xml
+  mapper-locations: classpath:mapper/**/*-Mapper.xml
 # spring配置
 spring:
   # 数据库
