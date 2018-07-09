@@ -2,6 +2,6 @@ rootProject.name = 'panda'
 include 'hello'
 include 'panda-service'
 include 'panda-dao'
-include 'panda-entity'
 include 'tyrande'
+include 'panda-service-impl'
 

@@ -20,6 +20,7 @@ dependencies {
             "com.alibaba:fastjson:$fastjsonVersion",
             "org.webjars:jquery:3.3.1", // webjar
             "org.webjars:bootstrap:4.1.0", // webjar
+            "com.alibaba:dubbo:2.6.2",
             project(
                     ":panda-service"
             )

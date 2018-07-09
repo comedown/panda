@@ -1,13 +1,12 @@
-package com.panda.entity.sys;
+package com.panda.system.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Table(name = "sys_user")
+import java.io.Serializable;
+import java.util.Date;
+
 @Getter
 @Setter
 @ToString
@@ -15,7 +14,6 @@ public class User implements Serializable {
     /**
      * 用户id
      */
-    @Id
     private Integer id;
 
     /**
@@ -71,13 +69,11 @@ public class User implements Serializable {
     /**
      * 创建时间
      */
-    @Column(name = "createTime")
     private Date createtime;
 
     /**
      * 更新时间
      */
-    @Column(name = "updateTime")
     private Date updatetime;
 
     /**
@@ -88,19 +84,16 @@ public class User implements Serializable {
     /**
      * 头像url
      */
-    @Column(name = "profile_image_url")
     private String profileImageUrl;
 
     /**
      * 是否有效（默认0：有效，1：无效）
      */
-    @Column(name = "isValid")
     private Boolean isvalid;
 
     /**
      * 头像二进制
      */
-    @Column(name = "profile_image_binarry")
     private byte[] profileImageBinarry;
 
     private static final long serialVersionUID = 1L;

@@ -1,7 +1,7 @@
 package com.panda.dao;
 
-import com.panda.dao.sys.UserDao;
-import com.panda.entity.sys.User;
+import com.panda.system.dao.UserDao;
+import com.panda.system.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;

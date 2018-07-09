@@ -1,8 +1,8 @@
 package com.panda.hello.controller.auth;
 
-import com.panda.entity.sys.User;
+import com.panda.system.entity.User;
 import com.panda.hello.controller.BaseController;
-import com.panda.service.sys.IUserService;
+import com.panda.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.io.FileNotFoundException;
 @RequestMapping("/auth")
 public class LoginController extends BaseController {
 	@Autowired
-	private IUserService userService;
+	private UserService userService;
 
 	@PostMapping("/login")
 	private String auth() {

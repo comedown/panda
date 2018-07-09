@@ -1,6 +1,6 @@
-package com.panda.dao.sys;
+package com.panda.system.dao;
 
-import com.panda.entity.sys.Menu;
+import com.panda.system.entity.Menu;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface MenuDao extends Mapper<Menu> {

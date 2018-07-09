@@ -1,7 +1,6 @@
-package com.panda.dao.sys;
+package com.panda.system.dao;
 
-import com.panda.entity.sys.User;
-import org.apache.ibatis.annotations.Select;
+import com.panda.system.entity.User;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;

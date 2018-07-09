@@ -1,13 +1,13 @@
-package com.panda.service.sys.impl;
+package com.panda.system.service.impl;
 
-import com.panda.dao.sys.UserDao;
-import com.panda.entity.sys.User;
-import com.panda.service.sys.IUserService;
+import com.panda.system.dao.UserDao;
+import com.panda.system.entity.User;
+import com.panda.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDao userDao;

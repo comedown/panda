@@ -1,29 +1,25 @@
-package com.panda.entity.sys;
+package com.panda.system.entity;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Table(name = "sys_menu")
+import java.io.Serializable;
+
 @Getter
 @Setter
 @ToString
 public class Menu implements Serializable {
-    @Id
     private Integer id;
 
     /**
      * 菜单编号
      */
-    @Column(name = "menu_code")
     private String menuCode;
 
     /**
      * 菜单名称
      */
-    @Column(name = "menu_name")
     private String menuName;
 
     /**
@@ -39,7 +35,6 @@ public class Menu implements Serializable {
     /**
      * 上级
      */
-    @Column(name = "p_id")
     private Integer pId;
 
     /**
@@ -55,7 +50,6 @@ public class Menu implements Serializable {
     /**
      * 是否有效（默认0：有效，1：无效）
      */
-    @Column(name = "isValid")
     private Boolean isvalid;
 
     private static final long serialVersionUID = 1L;

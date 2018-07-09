@@ -1,7 +1,7 @@
 package com.panda.service;
 
-import com.panda.entity.sys.User;
-import com.panda.service.sys.IUserService;
+import com.panda.system.entity.User;
+import com.panda.system.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ServiceBootstrap {
 
 	@Autowired
-	private IUserService userService;
+	private UserService userService;
 
 	@Test
 	public void testMybatis() {
