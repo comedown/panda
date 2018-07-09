@@ -1,11 +1,12 @@
 package com.panda.system.entity;
 
+import java.io.Serializable;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.io.Serializable;
-
+@Table(name = "sys_user_auth")
 @Getter
 @Setter
 @ToString
@@ -13,21 +14,25 @@ public class UserAuth implements Serializable {
     /**
      * 主键
      */
+    @Id
     private Integer id;
 
     /**
      * 用户id
      */
+    @Column(name = "userId")
     private Integer userid;
 
     /**
      * 认证方式
      */
+    @Column(name = "auth_type")
     private String authType;
 
     /**
      * 认证标志
      */
+    @Column(name = "auth_flag")
     private String authFlag;
 
     /**

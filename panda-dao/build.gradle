@@ -16,6 +16,5 @@ dependencies {
         exclude group: 'org.springframework.boot'
     }
     compile("tk.mybatis:mapper:$tkMybatisVersion") {
-        exclude group: 'javax.persistence'
     }
 }
